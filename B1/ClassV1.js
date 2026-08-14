@@ -1,5 +1,5 @@
 class Conta {//sempre maiusculo
-    constructor(agencia, numero, cliente, saldo) {
+    constructor(agencia, numero, cliente, saldo = 0) {
         this.agencia = agencia;
         this.numero = numero;
         this.cliente = cliente;
@@ -25,10 +25,34 @@ class Conta {//sempre maiusculo
 
     }
 }
-var contaR = new Conta(123, 435, "Cleber", 9);
+
+//Conta Conrrente desconta R$1.00 por extato impresso
+//extends faz com que a contaCorrente vire filha da conta.
+class ContaCorrente extends Conta {
+    constructor(agencia, numero, cliente, saldo, taxa) {
+        super(agencia, numero, cliente, saldo);
+        this.taxa = taxa;
+    }
+
+
+
+    Extrato() {
+        this.saldo--;
+        console.log("A conta de nr. " + this.numero + " possui R$:" + this.saldo);
+    }
+}
+//Essa parte seria como um console.log, aqui você cria a conta e escolhe o que vai ser exibido
+var contaR = new Conta(123, 435, "Cleber", 100);
 
 contaR.Extrato();
-contaR.depositar(100);
+
 contaR.Extrato();
-contaR.sacar(50);
+
 contaR.Extrato();
+
+var contaC = new ContaCorrente(123, 111, "Figado", 100);
+contaC.Extrato();
+
+contaC.Extrato();
+
+contaC.Extrato();

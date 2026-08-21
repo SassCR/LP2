@@ -3,7 +3,7 @@
 "use strict" //É essencial para o codigo não quebrar futuramente
 
 class matematica {
-    static pi = ;
+    static pi = 135165161;
 
     static soma(a, b) {
         return a + b;
